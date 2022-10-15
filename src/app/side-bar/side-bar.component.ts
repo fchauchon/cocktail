@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+    label: string = ''
+    normal: boolean = true
+    myClasses: any = {}
 
-  ngOnInit(): void {
-  }
+    constructor() { }
+
+    ngOnInit(): void {
+        this.label = this.normal ? 'Réduire' : 'Agrandir'
+        this.manageState()
+    }
+
+    onClick() {
+        this.normal = ! this.normal
+        this.manageState()
+    }
+
+    manageState = () => {
+        this.label = this.normal ? 'Réduire' : 'Agrandir'
+        this.myClasses.reduit = ! this.normal
+        this.myClasses.normal = this.normal
+    }
 
 }

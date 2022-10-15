@@ -1,7 +1,7 @@
 <div class="w3-padding general">
     <div [hidden]="isHidden">
-        <span [ngClass]="titleClass">{{ title | uppercase }}</span>
-        <div [ngStyle]="{ 'background-color':'green' }">{{ body }}</div>
+        <span [ngClass]="nameClass">{{ name | uppercase }}</span>
+        <div [ngStyle]="{ 'background-color':'green' }">{{ description }}</div>
         <input [value]="inputValue" />
     </div>
     <button (click)="onClick()">Change</button>

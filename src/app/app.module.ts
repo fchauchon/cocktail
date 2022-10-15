@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
-import { DataComponent } from './data/data.component';
+import { CocktailComponent } from './cocktail/cocktail.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { MainComponent } from './main/main.component';
 
@@ -16,7 +16,7 @@ import { MainComponent } from './main/main.component';
     HeaderComponent,
     FooterComponent,
     BodyComponent,
-    DataComponent,
+    CocktailComponent,
     SideBarComponent,
     MainComponent
   ],
