@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+    lastCocktail: string = 'No value'
     cocktails: Array<any> = new Array<any>()
 
     constructor() { }
@@ -19,6 +20,6 @@ export class MainComponent implements OnInit {
     }
 
     onEvent(event: any) {
-        console.log('Recu', event)
+        this.lastCocktail = event
     }
 }

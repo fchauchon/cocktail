@@ -8,6 +8,5 @@ html, body {
 }
 
 div, content, header {
-    border: 1px solid;
     padding: 10px;
 }
