@@ -1,27 +1,28 @@
-<header class="w3-cell-row w3-padding" style="height: 8%; background-color: lightgray;">
+<header class="w3-cell-row" style="height: 8%; background-color: lightgray;">
     <div class="w3-cell w3-cell-middle">
-        <!--span class="w3-padding"><img src="assets/logo.svg" width="100px" /></span-->
-        <span class="w3-padding">Lien 1</span>
-        <span class="w3-padding">Lien 2</span>
-        <span class="w3-padding">Lien 3</span>
+        <span *ngIf="false" class="w3-padding"><img src="assets/logo.svg" width="100px" /></span>
+        <span class="w3-padding">Logo</span>
+        <span class="w3-padding">Link 1</span>
+        <span class="w3-padding">Link 2</span>
+        <span class="w3-padding">Link 3</span>
     </div>
 </header>
-<div class="w3-col" style="width:100%; height: 84%; background-color: blueviolet;">
+<content class="w3-col" style="width:100%; height: 84%; background-color: blueviolet;">
     <div class="w3-col w3-padding" style="width:20%; height: 100%; background-color: green;">
-        sidebar
+        Sidebar
     </div>
-    <div class="w3-col" style="width:80%; background-color: blue;">
-        <div class="w3-padding">
-            block 1
+    <div class="w3-col" style="width:80%; height: 100%; background-color: blue;">
+        <div class="w3-padding" style="background-color: orange;">
+            Data 1
         </div>
-        <div class="w3-padding">
-            block 2
+        <div class="w3-padding" style="background-color: orange;">
+            Data 2
         </div>
-        <div class="w3-padding">
-            block 3
+        <div class="w3-padding" style="background-color: orange;">
+            Data 3
         </div>
     </div>
-</div>
+</content>
 <footer class="w3-cell-row" style="width: 100%; height: 8%; background-color: lightgray">
     <div class="w3-container w3-cell w3-cell-middle w3-center">
         Footer

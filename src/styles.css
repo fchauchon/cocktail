@@ -4,3 +4,8 @@
 html, body {
     height: 100%
 }
+
+div, content, header {
+    border: 1px solid;
+    padding: 10px;
+}
