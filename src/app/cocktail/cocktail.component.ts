@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cocktail',
@@ -7,11 +7,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class CocktailComponent implements OnInit, OnDestroy {
 
+    @Input() cocktail: any
+    @Output() eventOut = new EventEmitter<string>()
     isHidden: boolean = false;
-    name: string = 'Mojito'
     nameClass: any = { 'font-style': 'italic' }
 
-    description: string = 'Délicieux cocktail'
     descriptionStyles: any = {}
 
     ingredients: Array<string> = new Array<string>()
@@ -23,6 +23,7 @@ export class CocktailComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        console.log(this.cocktail)
         this.nameClass.gras = true;
         this.inputValue = 'Input value';
         this.ingredients.push('Citrons verts')
@@ -32,7 +33,8 @@ export class CocktailComponent implements OnInit, OnDestroy {
     }
 
     onClick() {
-        this.isHidden = ! this.isHidden
+        console.log(this.cocktail.name)
+        this.eventOut.emit(this.cocktail.name)
     }
 
     ngOnDestroy(): void {

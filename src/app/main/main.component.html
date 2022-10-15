@@ -1,5 +1,7 @@
 <div class="w3-col general">
-    <app-cocktail></app-cocktail>
-    <app-cocktail></app-cocktail>
-    <app-cocktail></app-cocktail>
+    <ng-container *ngIf="cocktails.length > 0">
+        <ng-container *ngFor="let item of cocktails">
+            <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>
+        </ng-container>
+    </ng-container>
 </div>

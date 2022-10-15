@@ -18,4 +18,7 @@ export class MainComponent implements OnInit {
         this.cocktails.push( { name: 'Virgin Mojito', description: 'Le Virgin Mojito est inspiré par le célèbre Mojito cubain, l\'un des ceux qui représente le plus la culture cubaine, à l\'égal du Cuba libre et du Daiquiri.', alcool: false } )
     }
 
+    onEvent(event: any) {
+        console.log('Recu', event)
+    }
 }
