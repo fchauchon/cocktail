@@ -4,6 +4,6 @@
         <div [ngStyle]="{ 'background-color': 'green' }">{{ cocktail.description }}</div>
         <input [(ngModel)]="inputValue" />{{ inputValue }}
         <img [src]="cocktail.img" width="100px"/>
+        <button (click)="onClick()">Change</button>
     </div>
-    <button (click)="onClick()">Change</button>
 </div>
