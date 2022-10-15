@@ -26,4 +26,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-<span *ngIf="false" class="w3-padding"><img src="assets/logo.svg" width="100px" /></span>
+this.items.push( { name: 'Accueil', display: true })
+this.items.push( { name: 'Avec alcool', display: true })
+this.items.push( { name: 'Sans alcool', display: true })
+this.items.push( { name: 'Tous', display: false })
+
+this.cocktails.push( { name: 'Mojito', description: 'Rien de mieux qu\'un bon mojito maison fait dans les régles de l\'art', alcool: true } )
+this.cocktails.push( { name: 'Cuba libre', description: 'Le Cuba libre est un cocktail officiel de l\'IBA4, à base de rhum, citron vert, et cola.', alcool: true } )
+this.cocktails.push( { name: 'Margarita', description: 'La Margarita est un cocktail à base de tequila, inventé par des Américains au Mexique', alcool: true } )
+this.cocktails.push( { name: 'Virgin Mojito', description: 'Le Virgin Mojito est inspiré par le célèbre Mojito cubain, l\'un des ceux qui représente le plus la culture cubaine, à l\'égal du Cuba libre et du Daiquiri.', alcool: false } )
