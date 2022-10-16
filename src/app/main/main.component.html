@@ -1,4 +1,4 @@
-<div class="w3-col general" style="overflow: auto">
+<div class="w3-col general" [ngClass]="myClasses" style="overflow: auto">
     {{ lastCocktail }}
     <ng-container *ngIf="cocktails.length > 0">
         <ng-container *ngFor="let item of cocktails">

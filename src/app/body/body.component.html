@@ -1,4 +1,4 @@
 <content class="w3-col general">
-    <app-side-bar></app-side-bar>
-    <app-main></app-main>
+    <app-side-bar (eventOut)="onEvent($event)"></app-side-bar>
+    <app-main [state]="state"></app-main>
 </content>

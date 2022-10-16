@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
+
+    @Output() eventOut = new EventEmitter<string>()
 
     label: string = ''
     normal: boolean = true
@@ -21,6 +23,7 @@ export class SideBarComponent implements OnInit {
     onClick() {
         this.normal = ! this.normal
         this.manageState()
+        this.eventOut.emit(this.normal ? 'normal' : 'max')
     }
 
     manageState = () => {
