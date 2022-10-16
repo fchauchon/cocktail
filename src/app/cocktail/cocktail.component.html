@@ -1,9 +1,11 @@
 <div class="w3-padding general">
     <div [hidden]="isHidden">
-        <span [ngClass]="nameClass" [ngStyle]="nameStyle">{{ cocktail.name | uppercase }}</span>
-        <div [ngStyle]="{ 'background-color': 'green' }">{{ cocktail.description }}</div>
-        <input [(ngModel)]="inputValue" />{{ inputValue }}
         <img [src]="cocktail.img" width="100px"/>
-        <button (click)="onClick()">Change</button>
+        <div [ngClass]="nameClass" [ngStyle]="nameStyle">{{ cocktail.name | uppercase }}</div>
+        <div [ngStyle]="{ 'background-color': 'lightgray' }">{{ cocktail.description }}</div>
+        <ng-container *ngIf="false">
+            <input [(ngModel)]="inputValue" />{{ inputValue }}
+        </ng-container>
+        <button class="w3-button w3-blue" (click)="onClick()">Change</button>
     </div>
 </div>
