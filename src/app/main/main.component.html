@@ -1,7 +1,7 @@
-<div class="w3-col general" [ngClass]="myClasses" style="overflow: auto">
+<div class="w3-col general" style="overflow: auto">
     {{ lastCocktail }}
-    <ng-container *ngIf="cocktails.length > 0">
-        <ng-container *ngFor="let item of cocktails">
+    <ng-container *ngIf="displayedCocktails.length > 0">
+        <ng-container *ngFor="let item of displayedCocktails">
             <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>
         </ng-container>
     </ng-container>

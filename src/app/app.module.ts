@@ -8,8 +8,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
 import { CocktailComponent } from './cocktail/cocktail.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MainComponent } from './main/main.component';
+import { WithComponent } from './with/with.component';
+import { WithoutComponent } from './without/without.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +21,11 @@ import { MainComponent } from './main/main.component';
     FooterComponent,
     BodyComponent,
     CocktailComponent,
-    SideBarComponent,
-    MainComponent
+    NavBarComponent,
+    MainComponent,
+    WithComponent,
+    WithoutComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
