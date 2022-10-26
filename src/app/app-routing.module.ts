@@ -6,8 +6,9 @@ import { WithoutComponent } from './without/without.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-    { path: '', component: MainComponent },
-    { path: ':letter', component: MainComponent },
+    { path: '', pathMatch: 'full', redirectTo: '/all' },
+    { path: 'all', component: MainComponent },
+    { path: 'all/:letter', component: MainComponent },
     { path: 'with', component: WithComponent },
     { path: 'without', component: WithoutComponent },
     { path: 'about', component: AboutComponent },

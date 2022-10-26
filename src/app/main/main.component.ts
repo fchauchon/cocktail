@@ -1,3 +1,4 @@
+import { UntypedFormGroup, FormControl } from '@angular/forms';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,8 +12,15 @@ export class MainComponent implements OnInit {
     lastCocktail: string = 'No value'
     cocktails: Array<any> = new Array<any>()
     displayedCocktails: Array<any> = new Array<any>()
+    formGroup: UntypedFormGroup
+    searchControl: FormControl
 
-    constructor(private route: ActivatedRoute) { }
+    constructor(private route: ActivatedRoute) {
+        this.searchControl = new FormControl<string>('')
+        this.formGroup = new UntypedFormGroup(
+        { search: this.searchControl }
+    )
+    }
 
     ngOnInit(): void {
         this.cocktails.push( { name: 'Mojito', description: 'Rien de mieux qu\'un bon mojito maison fait dans les régles de l\'art', img: 'assets/mojito.jpg', alcool: true } )
@@ -30,4 +38,8 @@ export class MainComponent implements OnInit {
         this.lastCocktail = event
     }
 
+    submit() {
+        let filter = this.searchControl.value
+        this.displayedCocktails = this.cocktails.filter( el => filter ? el.name === filter : true )
+    }
 }

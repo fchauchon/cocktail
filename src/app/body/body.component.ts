@@ -7,14 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-    state: string = 'normal'
     constructor() { }
 
     ngOnInit(): void {
-    }
-
-    onEvent(event: any) {
-        this.state = event
     }
 
 }

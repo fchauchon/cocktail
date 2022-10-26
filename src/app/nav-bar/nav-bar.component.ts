@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit {
     }
 
     all() {
-        this.router.navigate(['/', ''])
+        this.router.navigate(['/all', ''])
     }
 
 }
