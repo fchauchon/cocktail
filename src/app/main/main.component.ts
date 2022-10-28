@@ -12,19 +12,19 @@ export class MainComponent implements OnInit {
 
     lastCocktail: string = 'No value'
     cocktails: Array<any> = new Array<any>()
-
     displayedCocktails: Array<any> = new Array<any>()
-    formGroup: UntypedFormGroup
-    searchControl: FormControl
+
+    searchForm: UntypedFormGroup
+    cocktailNameCtrl: FormControl
 
     constructor(
         private route: ActivatedRoute,
         private cocktailService: CocktailService
     ) {
-        this.searchControl = new FormControl<string>('', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z]+')])
-        this.formGroup = new UntypedFormGroup(
-            { search: this.searchControl }
-        )
+        this.cocktailNameCtrl = new FormControl('')
+        this.searchForm = new UntypedFormGroup({
+            cocktailName: this.cocktailNameCtrl
+        })
     }
 
     ngOnInit(): void {
@@ -39,7 +39,6 @@ export class MainComponent implements OnInit {
     }
 
     submit() {
-        let filter = this.searchControl.value
-        this.displayedCocktails = this.cocktails.filter( el => filter ? el.name === filter : true )
+        console.log(this.searchForm.value)
     }
 }
