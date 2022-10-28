@@ -4,21 +4,19 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class FinanceService {
-    solde: number = 1000
+    protected balance: number = 1000
 
     constructor() { }
 
-    retirer() {
-        this.solde -= 20
-        console.log(this.solde)
+    spendMoney() {
+        this.balance -= 20
     }
 
-    crediter() {
-        this.solde += 100
-        console.log(this.solde)
+    addMoney() {
+        this.balance += 100
     }
 
-    afficherSolde() {
-        return this.solde
+    getBalance() {
+        return this.balance
     }
 }

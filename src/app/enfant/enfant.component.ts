@@ -7,16 +7,16 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./enfant.component.css']
 })
 export class EnfantComponent implements OnInit {
-    @Input() prenom: string = ''
-    @Output() soldeChange = new EventEmitter()
+    @Input() firstname: string = ''
+    @Output() balanceChange = new EventEmitter()
 
     constructor(private financeService: FinanceService) { }
 
     ngOnInit(): void {
     }
 
-    depenser() {
-        this.financeService.retirer()
-        this.soldeChange.emit('gljkfdglmdfjgkl')
+    spendMoney() {
+        this.financeService.spendMoney()
+        this.balanceChange.emit( { from: this.firstname, amount: 20 } )
     }
 }

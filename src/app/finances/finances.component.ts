@@ -1,3 +1,4 @@
+import { FinanceService } from '../finance.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinancesComponent implements OnInit {
 
-  constructor() { }
+    balance: number = 0
+    actions: Array<any>
 
-  ngOnInit(): void {
-  }
+    constructor(private financeService: FinanceService) {
+        this.actions = new Array<any>()
+    }
 
+    ngOnInit(): void {
+        this.refreshBalance()
+    }
+
+    onBalanceChange(data: any) {
+        this.actions.push(data)
+        this.refreshBalance()
+    }
+
+    refreshBalance() {
+        this.balance = this.financeService.getBalance()
+    }
 }

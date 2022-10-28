@@ -2,6 +2,7 @@
     <div [hidden]="isHidden">
         <img [src]="cocktail.img" width="100px"/>
         {{ cocktail.name | uppercase }}
-        <button class="w3-button w3-blue" (click)="onClick()">Change</button>
+        {{ cocktail.description }}
+        <button class="w3-button w3-blue" (click)="onClick()">Sélectionner ce cocktail</button>
     </div>
 </div>

@@ -10,3 +10,7 @@ html, body {
 div, content, header {
     padding: 10px;
 }
+
+a {
+    text-decoration: none;
+}

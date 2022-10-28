@@ -1,17 +1,16 @@
-import { MainComponent } from './main/main.component';
-import { NgModule, Component } from '@angular/core';
+import { HomeComponent } from './home/home.component';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WithComponent } from './with/with.component';
-import { WithoutComponent } from './without/without.component';
+import { WithOrWithoutComponent } from './with-or-without/with-or-without.component';
 import { PasswordComponent } from './password/password.component';
 import { FinancesComponent } from './finances/finances.component';
 
 const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: '/all' },
-    { path: 'all', component: MainComponent },
-    { path: 'all/:letter', component: MainComponent },
-    { path: 'with', component: WithComponent },
-    { path: 'without', component: WithoutComponent },
+    { path: '', pathMatch: 'full', redirectTo: '/home' },
+    { path: 'home', component: HomeComponent },
+    { path: 'home/:letter', component: HomeComponent },
+    { path: 'with', component: WithOrWithoutComponent },
+    { path: 'without', component: WithOrWithoutComponent },
     { path: 'password', component: PasswordComponent },
     { path: 'finances', component: FinancesComponent }
 ];

@@ -1,9 +1,10 @@
 <div class="w3-col general" style="overflow: auto">
-    <form (ngSubmit)="submit()" [formGroup]="searchForm">
-        Nom du cocktail: <input formControlName="cocktailName">
-        <button>Chercher</button>
+    <app-nav-bar></app-nav-bar>
+    <form [formGroup]="searchForm">
+        Nom du cocktail à rechercher : <input formControlName="search">
     </form>
-    {{ lastCocktail }}
+    <br/>
+    Dernier cocktail sélectionné : {{ lastCocktail }}
     <ng-container *ngIf="displayedCocktails.length > 0">
         <ng-container *ngFor="let item of displayedCocktails">
             <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>

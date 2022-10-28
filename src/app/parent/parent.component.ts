@@ -7,14 +7,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./parent.component.css']
 })
 export class ParentComponent implements OnInit {
-    @Output() soldeChange = new EventEmitter()
+    @Output() balanceChange = new EventEmitter()
     constructor(private finance: FinanceService) { }
 
     ngOnInit(): void {
     }
 
-    crediter() {
-        this.finance.crediter()
-        this.soldeChange.emit('')
+    addMoney() {
+        this.finance.addMoney()
+        this.balanceChange.emit( { from: "Parents", amount: 100} )
     }
 }
