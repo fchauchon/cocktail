@@ -12,7 +12,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MainComponent } from './main/main.component';
 import { WithComponent } from './with/with.component';
 import { WithoutComponent } from './without/without.component';
-import { AboutComponent } from './about/about.component';
+import { PasswordComponent } from './password/password.component';
+import { EnfantComponent } from './enfant/enfant.component';
+import { ParentComponent } from './parent/parent.component';
+import { SoldeComponent } from './solde/solde.component';
+import { FinancesComponent } from './finances/finances.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { AboutComponent } from './about/about.component';
     MainComponent,
     WithComponent,
     WithoutComponent,
-    AboutComponent
+    PasswordComponent,
+    EnfantComponent,
+    ParentComponent,
+    SoldeComponent,
+    FinancesComponent
   ],
   imports: [
     BrowserModule,

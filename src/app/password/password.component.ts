@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { combineLatest } from 'rxjs';
 
 @Component({
-    selector: 'app-about',
-    templateUrl: './about.component.html',
-    styleUrls: ['./about.component.css']
+    selector: 'password-about',
+    templateUrl: './password.component.html',
+    styleUrls: ['./password.component.css']
 })
-export class AboutComponent implements OnInit {
+export class PasswordComponent implements OnInit {
 
     form: UntypedFormGroup
     password: FormControl<string | null>
@@ -24,6 +24,12 @@ export class AboutComponent implements OnInit {
             }
         )
     }
+
+
+    
+
+
+
 
     ngOnInit(): void {
         combineLatest([this.password.valueChanges, this.confirmPassword.valueChanges]).subscribe(

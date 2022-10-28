@@ -1,6 +1,5 @@
 <div class="w3-col general" style="overflow: auto">
-    <app-nav-bar></app-nav-bar>
-    {{ lastCocktail }}
+    <app-nav-bar></app-nav-bar> 
     <form (ngSubmit)="submit()" [formGroup]="formGroup">
         <input type="text" formControlName="search">
         <button>Search</button>
@@ -8,9 +7,10 @@
     {{ formGroup.valid }} - {{ searchControl.valid }}
     <ng-container *ngIf="! formGroup.valid">
         <span *ngIf="searchControl.hasError('required')">
-            {{ "xx" }}
+            Champ requis
         </span>
     </ng-container>
+    {{ lastCocktail }}
     <ng-container *ngIf="displayedCocktails.length > 0">
         <ng-container *ngFor="let item of displayedCocktails">
             <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>
