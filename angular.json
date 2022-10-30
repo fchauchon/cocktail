@@ -96,7 +96,7 @@
             }
           },
           "options": {
-            "proxyConfig": "src/proxy.config.json"
+            "proxyConfig": "src/proxy.conf.json"
           },
           "defaultConfiguration": "development"
         },
