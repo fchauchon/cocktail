@@ -1,9 +1,14 @@
+import { HttpClient } from '@angular/common/http';
+import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CocktailService {
+
+    BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1'
 
     cocktails = [
         { name: 'Mojito', description: 'Rien de mieux qu\'un bon mojito maison fait dans les régles de l\'art', img: 'assets/mojito.jpg', alcool: true },
@@ -13,10 +18,17 @@ export class CocktailService {
         { name: 'Virgin Mojito', description: 'Le Virgin Mojito est inspiré par le célèbre Mojito cubain, l\'un des ceux qui représente le plus la culture cubaine, à l\'égal du Cuba libre et du Daiquiri.', img: 'assets/virginmojito.jpg', alcool: false }
     ]
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
     getCocktails() {
-        return this.cocktails
+        return this.http.get(this.BASE_URL + '/filter.php?i=rum').pipe(
+            map( (data: any) => {
+                const arr = data['drinks']
+                return arr.map( (el: any) => {
+                    return { name: el.strDrink, id: el.idDrink, img: el.strDrinkThumb, description: el.strInstructions }
+                })
+            })
+        )
     }
 
     getCocktailsWithAlcool() {
