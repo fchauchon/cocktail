@@ -10,13 +10,13 @@ import { combineLatest } from 'rxjs';
 export class PasswordComponent implements OnInit {
 
     form: UntypedFormGroup
-    password: FormControl<string | null>
-    confirmPassword: FormControl<string | null>
+    password: FormControl<string>
+    confirmPassword: FormControl<string>
     percent = 0
 
     constructor() {
-        this.password = new FormControl<string>('')
-        this.confirmPassword = new FormControl<string>('')
+        this.password = new FormControl<string>('', { nonNullable: true })
+        this.confirmPassword = new FormControl<string>('', { nonNullable: true })
         this.form = new UntypedFormGroup(
             {
                 password: this.password,
@@ -24,12 +24,6 @@ export class PasswordComponent implements OnInit {
             }
         )
     }
-
-
-    
-
-
-
 
     ngOnInit(): void {
         combineLatest([this.password.valueChanges, this.confirmPassword.valueChanges]).subscribe(

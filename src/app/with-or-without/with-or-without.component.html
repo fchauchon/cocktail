@@ -1,5 +1,5 @@
 <ng-container *ngIf="cocktails.length > 0">
-    <ng-container *ngFor="let item of cocktails">
-        <app-cocktail [cocktail]="item"></app-cocktail>
+    <ng-container *ngFor="let cocktail of cocktails">
+        <app-cocktail [cocktail]="cocktail"></app-cocktail>
     </ng-container>
 </ng-container>

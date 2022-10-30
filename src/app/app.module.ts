@@ -11,8 +11,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { WithOrWithoutComponent } from './with-or-without/with-or-without.component';
 import { PasswordComponent } from './password/password.component';
-import { EnfantComponent } from './enfant/enfant.component';
-import { ParentComponent } from './parent/parent.component';
+import { EnfantComponent } from './finances/enfant/enfant.component';
+import { ParentComponent } from './finances/parent/parent.component';
 import { FinancesComponent } from './finances/finances.component';
 
 @NgModule({

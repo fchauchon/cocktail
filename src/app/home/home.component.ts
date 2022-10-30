@@ -15,13 +15,13 @@ export class HomeComponent implements OnInit {
     displayedCocktails: Array<any> = new Array<any>()
 
     searchForm: UntypedFormGroup
-    searchCtrl: FormControl
+    searchCtrl: FormControl<string>
 
     constructor(
         private route: ActivatedRoute,
         private cocktailService: CocktailService
     ) {
-        this.searchCtrl = new FormControl('', [Validators.required])
+        this.searchCtrl = new FormControl('', { validators: [Validators.required], nonNullable: true })
         this.searchForm = new UntypedFormGroup({
             search: this.searchCtrl
         })
