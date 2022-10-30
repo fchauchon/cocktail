@@ -8,7 +8,7 @@ import { map, tap } from 'rxjs';
 })
 export class CocktailService {
 
-    BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1'
+    BASE_URL = '/api'
 
     cocktails = [
         { name: 'Mojito', description: 'Rien de mieux qu\'un bon mojito maison fait dans les régles de l\'art', img: 'assets/mojito.jpg', alcool: true },

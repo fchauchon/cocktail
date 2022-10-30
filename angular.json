@@ -95,6 +95,10 @@
               "browserTarget": "cocktail:build:development"
             }
           },
+          "options": {
+            "browserTarget": "project-name:build",
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
