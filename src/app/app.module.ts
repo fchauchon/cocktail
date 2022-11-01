@@ -12,9 +12,12 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { WithOrWithoutComponent } from './with-or-without/with-or-without.component';
 import { PasswordComponent } from './password/password.component';
-import { EnfantComponent } from './enfant/enfant.component';
-import { ParentComponent } from './parent/parent.component';
+import { EnfantComponent } from './finances/enfant/enfant.component';
+import { ParentComponent } from './finances/parent/parent.component';
 import { FinancesComponent } from './finances/finances.component';
+import { ObservablesPageComponent } from './observables-page/observables-page.component';
+import { ListenerComponent } from './observables-page/listener/listener.component';
+import { ProducerComponent } from './observables-page/producer/producer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { FinancesComponent } from './finances/finances.component';
     PasswordComponent,
     EnfantComponent,
     ParentComponent,
-    FinancesComponent
+    FinancesComponent,
+    ObservablesPageComponent,
+    ListenerComponent,
+    ProducerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { FinanceService } from './../finance.service';
+import { FinanceService } from '../../finance.service';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({

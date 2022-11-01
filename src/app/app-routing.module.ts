@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WithOrWithoutComponent } from './with-or-without/with-or-without.component';
 import { PasswordComponent } from './password/password.component';
 import { FinancesComponent } from './finances/finances.component';
+import { ObservablesPageComponent } from './observables-page/observables-page.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -12,7 +13,8 @@ const routes: Routes = [
     { path: 'with', component: WithOrWithoutComponent },
     { path: 'without', component: WithOrWithoutComponent },
     { path: 'password', component: PasswordComponent },
-    { path: 'finances', component: FinancesComponent }
+    { path: 'finances', component: FinancesComponent },
+    { path: 'observables', component: ObservablesPageComponent }
 ];
 
 @NgModule({
