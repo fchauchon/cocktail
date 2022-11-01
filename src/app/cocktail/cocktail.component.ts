@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cocktail',
@@ -11,15 +12,18 @@ export class CocktailComponent implements OnInit, OnDestroy {
     @Output() eventOut = new EventEmitter<string>()
     isHidden: boolean = false;
 
-    ingredients: Array<string> = new Array<string>()
-    
-    constructor() { }
+    constructor(private router: Router) { }
 
     ngOnInit(): void {
     }
 
     onClick() {
         this.eventOut.emit(this.cocktail.name)
+    }
+
+    onClickDetail() {
+      console.log('hr')
+        this.router.navigate(['/cocktails', this.cocktail.id, 'detail'])
     }
 
     ngOnDestroy(): void {

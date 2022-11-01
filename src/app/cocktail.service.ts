@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Cocktail } from './cocktail.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +18,36 @@ export class CocktailService {
         { name: 'Virgin Mojito', description: 'Le Virgin Mojito est inspiré par le célèbre Mojito cubain, l\'un des ceux qui représente le plus la culture cubaine, à l\'égal du Cuba libre et du Daiquiri.', img: 'assets/virginmojito.jpg', alcool: false }
     ]
 
-    constructor(private http: HttpClient) { }
+      constructor(private http: HttpClient) { }
 
-    getCocktails() {
-        return this.http.get(this.BASE_URL + '/filter.php?i=rum').pipe(
+      getCocktails(): Observable<Cocktail[]> {
+          return this.http.get(this.BASE_URL + '/filter.php?i=rum').pipe(
+              map( (data: any) => {
+                  const arr = data['drinks']
+                  return arr.map( (el: any) => {
+                      const c: Cocktail = {
+                        id: el.idDrink,
+                        name: el.strDrink,
+                        img: el.strDrinkThumb
+                      }
+                      return c
+                  })
+              })
+          )
+      }
+
+      getCocktailById(id: string): Observable<Cocktail[]> {
+        return this.http.get(this.BASE_URL + '/lookup.php?i=' + id).pipe(
             map( (data: any) => {
                 const arr = data['drinks']
                 return arr.map( (el: any) => {
-                    return { name: el.strDrink, id: el.idDrink, img: el.strDrinkThumb, description: el.strInstructions }
+                    const c: Cocktail = {
+                      id: el.idDrink,
+                      name: el.strDrink,
+                      description: el.strInstructions,
+                      img: el.strDrinkThumb
+                    }
+                    return c
                 })
             })
         )

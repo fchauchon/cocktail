@@ -1,0 +1,7 @@
+<ng-container *ngIf="cocktail">
+  {{ cocktail.id }}<br/>
+  <span style="font-weight: bold;"></span>{{ cocktail.name | uppercase }}<br/>
+  {{ cocktail.description }}<br/>
+  <img [src]="cocktail.img" />
+  <a routerLink="/home">Retour</a>
+</ng-container>

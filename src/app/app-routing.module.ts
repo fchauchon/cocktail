@@ -5,6 +5,7 @@ import { WithOrWithoutComponent } from './with-or-without/with-or-without.compon
 import { PasswordComponent } from './password/password.component';
 import { FinancesComponent } from './finances/finances.component';
 import { ObservablesPageComponent } from './observables-page/observables-page.component';
+import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'home/:letter', component: HomeComponent },
     { path: 'with', component: WithOrWithoutComponent },
     { path: 'without', component: WithOrWithoutComponent },
+    { path: 'cocktails/:id/detail', component: CocktailDetailComponent },
     { path: 'password', component: PasswordComponent },
     { path: 'finances', component: FinancesComponent },
     { path: 'observables', component: ObservablesPageComponent }

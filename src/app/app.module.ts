@@ -18,6 +18,7 @@ import { FinancesComponent } from './finances/finances.component';
 import { ObservablesPageComponent } from './observables-page/observables-page.component';
 import { ListenerComponent } from './observables-page/listener/listener.component';
 import { ProducerComponent } from './observables-page/producer/producer.component';
+import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProducerComponent } from './observables-page/producer/producer.componen
     FinancesComponent,
     ObservablesPageComponent,
     ListenerComponent,
-    ProducerComponent
+    ProducerComponent,
+    CocktailDetailComponent
   ],
   imports: [
     BrowserModule,
