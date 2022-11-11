@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
 import { CocktailComponent } from './cocktail/cocktail.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
 import { MainComponent } from './main/main.component';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { MainComponent } from './main/main.component';
     FooterComponent,
     BodyComponent,
     CocktailComponent,
-    SideBarComponent,
     MainComponent
   ],
   imports: [
