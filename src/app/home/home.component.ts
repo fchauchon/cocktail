@@ -1,4 +1,4 @@
-import { CocktailService } from '../cocktail.service';
+import { DataService } from '../data.service';
 import { UntypedFormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private cocktailService: CocktailService
+        private dataService: DataService
     ) {
         this.searchCtrl = new FormControl('', { validators: [Validators.required], nonNullable: true })
         this.searchForm = new UntypedFormGroup({
@@ -28,12 +28,12 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.cocktails = this.cocktailService.getCocktails()
+        this.cocktails = this.dataService.getCocktails()
         this.route.paramMap.subscribe(
             (params) => this.displayedCocktails = this.cocktails.filter( el => params.get('letter') ? el.name[0] === params.get('letter') : true)
         )
         this.searchCtrl.valueChanges.subscribe(
-            val => this.displayedCocktails = this.cocktailService.getCocktailFilteredByName(val)
+            val => this.displayedCocktails = this.dataService.getCocktailFilteredByName(val)
         )
     }
 
