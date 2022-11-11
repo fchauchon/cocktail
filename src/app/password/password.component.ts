@@ -1,22 +1,23 @@
 import { FormControl, FormGroup, UntypedFormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { combineLatest } from 'rxjs';
+import { combineLatest, interval, map } from 'rxjs';
 
 @Component({
-    selector: 'password-about',
+    selector: 'app-password',
     templateUrl: './password.component.html',
     styleUrls: ['./password.component.css']
 })
 export class PasswordComponent implements OnInit {
 
     form: UntypedFormGroup
-    password: FormControl<string | null>
-    confirmPassword: FormControl<string | null>
+    password: FormControl<string>
+    confirmPassword: FormControl<string>
     percent = 0
+    show = false
 
     constructor() {
-        this.password = new FormControl<string>('')
-        this.confirmPassword = new FormControl<string>('')
+        this.password = new FormControl<string>('', { nonNullable: true })
+        this.confirmPassword = new FormControl<string>('', { nonNullable: true })
         this.form = new UntypedFormGroup(
             {
                 password: this.password,
@@ -25,16 +26,42 @@ export class PasswordComponent implements OnInit {
         )
     }
 
-
-    
-
-
-
-
     ngOnInit(): void {
-        combineLatest([this.password.valueChanges, this.confirmPassword.valueChanges]).subscribe(
-            (val) => console.log(val)
+        this.password.valueChanges.subscribe(
+            data => this.percent = this.evaluate(data)
         )
+
+        combineLatest([this.password.valueChanges, this.confirmPassword.valueChanges]).pipe(
+        ).subscribe(
+            ([data1, data2]) => {
+                if (data1 === data2 && this.percent === 80) {
+                    this.percent = 100
+
+                    interval(1000).pipe(
+                        map( (value: number) => value % 2 === 0)
+                    ).subscribe(
+                        (show: boolean) => this.show = show
+                    )
+                }
+            }
+        )
+    }
+
+    evaluate(data: string): number {
+        let resultat = 0;
+        if (data.length >= 8) {
+            resultat += 20;
+        }
+        if (data.indexOf('!') >= 0) {
+            resultat += 20;
+        }
+        if (data.match(/[0-9]/)) {
+            resultat += 20;
+        }
+        if (data.indexOf('&') >= 0) {
+            resultat += 20;
+        }
+        return resultat;
     }
 
 }

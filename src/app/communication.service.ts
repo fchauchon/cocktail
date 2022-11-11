@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 export class CommunicationService {
 
   //protected queueData: Subject<string> = new Subject<string>()
-  protected queueData: BehaviorSubject<string> = new BehaviorSubject<string>('Init val')
+  protected queueData: BehaviorSubject<string> = new BehaviorSubject<string>('Valeur intiale')
 
   constructor() { }
 
@@ -19,3 +19,4 @@ export class CommunicationService {
     return this.queueData.asObservable()
   }
 }
+

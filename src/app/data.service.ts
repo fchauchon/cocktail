@@ -6,7 +6,7 @@ import { Cocktail } from './cocktail.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class CocktailService {
+export class DataService {
 
     BASE_URL = '/api'
 
@@ -63,5 +63,14 @@ export class CocktailService {
 
     getCocktailFilteredByName(search: string) {
         return this.cocktails.filter( el => el.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0 )
+    }
+
+    searchCocktailsByName(search: string) {
+        return this.http.get(this.BASE_URL + '/search.php?s=' + search).pipe(
+          map( (data: any) => {
+              const arr = data['drinks']
+              return arr.map( (el: any) => el.strDrink )
+          })
+      )
     }
 }

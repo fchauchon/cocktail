@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs';
-import { CocktailService } from '../cocktail.service';
+import { DataService } from '../data.service';
 
 @Component({
     selector: 'app-cocktail-detail',
@@ -14,12 +14,12 @@ export class CocktailDetailComponent implements OnInit {
 
     constructor(
         private activatedRoute: ActivatedRoute,
-        private cocktailService: CocktailService) { }
+        private dataService: DataService) { }
 
   ngOnInit(): void {
       this.activatedRoute.paramMap.pipe(
           map( params => params.get('id') ?? '' ),
-          switchMap( id => this.cocktailService.getCocktailById(id) )
+          switchMap( id => this.dataService.getCocktailById(id) )
       ).subscribe(
         cocktail => this.cocktail = cocktail[0]
       )

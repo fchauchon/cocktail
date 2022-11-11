@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CocktailService } from '../cocktail.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-with-or-without',
@@ -13,14 +13,14 @@ export class WithOrWithoutComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private cocktailService: CocktailService
+        private dataService: DataService
     ) { }
 
     ngOnInit(): void {
         if (this.router.url === '/with') {
-            this.cocktails = this.cocktailService.getCocktailsWithAlcool()
+            this.cocktails = this.dataService.getCocktailsWithAlcool()
         } else {
-            this.cocktails = this.cocktailService.getCocktailsWithoutAlcool()
+            this.cocktails = this.dataService.getCocktailsWithoutAlcool()
         }
     }
 

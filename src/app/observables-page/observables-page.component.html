@@ -1,4 +1,19 @@
 <div style="min-height: 700px;">
+  {{ current }}
+  <button (click)="start()">Start</button>
+  <button (click)="stop()">Stop</button>
+  <span *ngFor="let letter of letters">
+      {{ letter }}&nbsp;
+  </span>
   <app-producer></app-producer>
-  <app-listener></app-listener>
+
+  <form [formGroup]="formGroup">
+    <input formControlName="search">
+    <ul>
+      <li *ngFor="let sugg of suggestions">
+          {{ sugg }}
+      </li>
+    </ul>
+  </form>
+  <app-password></app-password>
 </div>
