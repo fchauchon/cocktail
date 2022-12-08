@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { DataService } from '../data.service'
 
 @Component({
     selector: 'app-body',
@@ -7,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-    state: string = 'normal'
-    constructor() { }
+    myClasses: any = {}
+    lastCocktail: string = 'No value'
+    cocktails: Array<any> = new Array<any>()
+
+    constructor(private dataService: DataService) { }
 
     ngOnInit(): void {
+        this.cocktails = this.dataService.getCocktails()
     }
 
-    onEvent(event: any) {
-        this.state = event
+    onEvent = (event: any) => {
+        this.lastCocktail = event
     }
 
 }
