@@ -2,7 +2,6 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WithOrWithoutComponent } from './with-or-without/with-or-without.component';
-import { PasswordComponent } from './password/password.component';
 import { FinancesComponent } from './finances/finances.component';
 import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
 
@@ -12,7 +11,6 @@ const routes: Routes = [
     { path: 'cocktails/:letter', component: CocktailDetailComponent },
     { path: 'with', component: WithOrWithoutComponent },
     { path: 'without', component: WithOrWithoutComponent },
-    { path: 'password', component: PasswordComponent },
     { path: 'finances', component: FinancesComponent }
 ];
 
