@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  selector: 'app-letter-bar',
+  templateUrl: './letter-bar.component.html',
+  styleUrls: ['./letter-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
+export class LetterBarComponent implements OnInit {
 
     letters = new Array<string>()
 

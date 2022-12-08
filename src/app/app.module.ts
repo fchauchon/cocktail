@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CocktailComponent } from './cocktail/cocktail.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LetterBarComponent } from './letter-bar/letter-bar.component';
 import { HomeComponent } from './home/home.component';
 import { WithOrWithoutComponent } from './with-or-without/with-or-without.component';
 import { EnfantComponent } from './finances/enfant/enfant.component';
@@ -23,7 +23,7 @@ import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.compo
     FooterComponent,
     HomeComponent,
     CocktailComponent,
-    NavBarComponent,
+    LetterBarComponent,
     WithOrWithoutComponent,
     EnfantComponent,
     ParentComponent,
