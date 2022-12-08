@@ -2,7 +2,7 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WithOrWithoutComponent } from './with-or-without/with-or-without.component';
-import { PasswordComponent } from './password/password.component';
+import { PasswordComponent } from './observables-page/password/password.component';
 import { FinancesComponent } from './finances/finances.component';
 import { ObservablesPageComponent } from './observables-page/observables-page.component';
 import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
