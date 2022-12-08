@@ -27,7 +27,12 @@ export class DataService {
         return this.cocktails.filter( el => !el.alcohol )
     }
 
+    getCocktailFilteredByLetter(letter: string) {
+        return this.cocktails.filter( el => el.name.toLocaleLowerCase()[0] === letter.toLocaleLowerCase() )
+    }
+
     getCocktailFilteredByName(search: string) {
         return this.cocktails.filter( el => el.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0 )
     }
+
 }

@@ -5,8 +5,8 @@
     </form>
     <br/>
     Dernier cocktail sélectionné : {{ lastCocktail }}
-    <ng-container *ngIf="displayedCocktails.length > 0">
-        <ng-container *ngFor="let item of displayedCocktails">
+    <ng-container *ngIf="cocktails.length > 0">
+        <ng-container *ngFor="let item of cocktails">
             <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>
         </ng-container>
     </ng-container>
