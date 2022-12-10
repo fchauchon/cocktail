@@ -1,8 +1,8 @@
 import { DataService } from '../data.service';
 import { UntypedFormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { interval, of, share } from 'rxjs';
+import { switchMap } from 'rxjs';
+import { Cocktail } from '../cocktail.interface';
 
 @Component({
     selector: 'app-home',
@@ -12,14 +12,12 @@ import { interval, of, share } from 'rxjs';
 export class HomeComponent implements OnInit {
 
     lastCocktail: string = ''
-    cocktails: Array<any> = new Array<any>()
-    displayedCocktails: Array<any> = new Array<any>()
+    cocktails: Cocktail[] = []
 
     searchForm: UntypedFormGroup
     searchCtrl: FormControl<string>
 
     constructor(
-        private route: ActivatedRoute,
         private dataService: DataService
     ) {
         this.searchCtrl = new FormControl('', {
@@ -33,15 +31,13 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.dataService.getCocktails().subscribe(
-            (data: any[]) => this.displayedCocktails = data
+            (data: any[]) => { console.log(data); this.cocktails = data}
         )
 
-        this.route.paramMap.subscribe(
-            (params) => this.displayedCocktails = this.cocktails.filter( el => params.get('letter') ? el.name[0] === params.get('letter') : true)
-        )
-
-        this.searchCtrl.valueChanges.subscribe(
-            val => this.displayedCocktails = this.dataService.getCocktailFilteredByName(val)
+        this.searchCtrl.valueChanges.pipe(
+            switchMap( (val: string) => this.dataService.getCocktailsContains(val))
+            ).subscribe(
+                (cocktails: Cocktail[]) => this.cocktails = cocktails
         )
     }
 

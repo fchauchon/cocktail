@@ -3,4 +3,5 @@ export interface Cocktail {
   name: string
   description?: string
   img: string
+  alcoholic: boolean
 }

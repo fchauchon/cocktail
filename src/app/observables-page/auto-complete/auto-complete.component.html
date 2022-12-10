@@ -1,8 +1,9 @@
+<h3>AutoComplete</h3>
 <form [formGroup]="formGroup">
     <input formControlName="search">
     <ul>
       <li *ngFor="let sugg of suggestions">
-          {{ sugg }}
+          {{ sugg.name }}
       </li>
     </ul>
   </form>

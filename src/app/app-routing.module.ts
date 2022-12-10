@@ -6,11 +6,12 @@ import { PasswordComponent } from './observables-page/password/password.componen
 import { FinancesComponent } from './finances/finances.component';
 import { ObservablesPageComponent } from './observables-page/observables-page.component';
 import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
+import { CocktailsByLetterComponent } from './cocktails-by-letter/cocktails-by-letter.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
     { path: 'home', component: HomeComponent },
-    { path: 'home/:letter', component: HomeComponent },
+    { path: 'cocktails/:letter/list', component: CocktailsByLetterComponent },
     { path: 'with', component: WithOrWithoutComponent },
     { path: 'without', component: WithOrWithoutComponent },
     { path: 'cocktails/:id/detail', component: CocktailDetailComponent },

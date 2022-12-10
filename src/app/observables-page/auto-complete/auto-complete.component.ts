@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
-import { debounceTime, filter, switchMap, tap } from 'rxjs';
+import { debounceTime, filter, switchMap } from 'rxjs';
+import { Cocktail } from 'src/app/cocktail.interface';
 import { DataService } from 'src/app/data.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { DataService } from 'src/app/data.service';
 })
 export class AutoCompleteComponent implements OnInit {
 
-    suggestions: string[] = []
+    suggestions: Cocktail[] = []
 
     formGroup: UntypedFormGroup
     searchControl: FormControl<string>
@@ -26,10 +27,9 @@ export class AutoCompleteComponent implements OnInit {
       this.searchControl.valueChanges.pipe(
           filter( chaine => chaine.length >= 3),
           debounceTime(1000),
-          tap( chaine => console.log(chaine)),
-          switchMap( chaine => this.dataService.searchCocktailsByName(chaine))
+          switchMap( chaine => this.dataService.getCocktailsBegin(chaine))
       ).subscribe(
-          data => this.suggestions = data
+          (cocktails: Cocktail[]) => this.suggestions = cocktails
     )
     }
 

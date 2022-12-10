@@ -10,67 +10,55 @@ export class DataService {
 
     BASE_URL = '/api'
 
-    cocktails = [
-        { name: 'Mojito', description: 'Rien de mieux qu\'un bon mojito maison fait dans les régles de l\'art', img: 'assets/mojito.jpg', alcool: true },
-        { name: 'Cuba libre', description: 'Le Cuba libre est un cocktail officiel de l\'IBA4, à base de rhum, citron vert, et cola.', img: 'assets/cubalibre.jpg', alcool: true },
-        { name: 'Margarita', description: 'La Margarita est un cocktail à base de tequila, inventé par des Américains au Mexique', img: 'assets/margarita.jpg', alcool: true },
-        { name: 'Sex on the beach', description: 'Le Sex on the Beach est un cocktail alcoolisé contenant de la vodka, du Schnaps à la pêche, du jus d\'orange et du jus de canneberge', img: 'assets/sexonthebeach.jpg', alcool: true },
-        { name: 'Virgin Mojito', description: 'Le Virgin Mojito est inspiré par le célèbre Mojito cubain, l\'un des ceux qui représente le plus la culture cubaine, à l\'égal du Cuba libre et du Daiquiri.', img: 'assets/virginmojito.jpg', alcool: false }
-    ]
+    constructor(private http: HttpClient) { }
 
-      constructor(private http: HttpClient) { }
-
-      getCocktails(): Observable<Cocktail[]> {
-          return this.http.get(this.BASE_URL + '/filter.php?i=rum').pipe(
-              map( (data: any) => {
-                  const arr = data['drinks']
-                  return arr.map( (el: any) => {
-                      const c: Cocktail = {
-                        id: el.idDrink,
-                        name: el.strDrink,
-                        img: el.strDrinkThumb
-                      }
-                      return c
-                  })
-              })
-          )
-      }
-
-      getCocktailById(id: string): Observable<Cocktail[]> {
-        return this.http.get(this.BASE_URL + '/lookup.php?i=' + id).pipe(
-            map( (data: any) => {
-                const arr = data['drinks']
-                return arr.map( (el: any) => {
-                    const c: Cocktail = {
-                      id: el.idDrink,
-                      name: el.strDrink,
-                      description: el.strInstructions,
-                      img: el.strDrinkThumb
-                    }
-                    return c
-                })
-            })
+    getCocktails(): Observable<Cocktail[]> {
+        return this.http.get(this.BASE_URL + '/search.php?s=m').pipe(
+            map( (data: any) => this.obj2ArrayCocktail(data) )
         )
     }
 
-    getCocktailsWithAlcool() {
-        return this.cocktails.filter( el => el.alcool )
+    getCocktailById(id: string): Observable<Cocktail[]> {
+        return this.http.get(this.BASE_URL + '/lookup.php?i=' + id).pipe(
+            map( (data: any) => this.obj2ArrayCocktail(data) )
+        )
     }
 
-    getCocktailsWithoutAlcool() {
-        return this.cocktails.filter( el => !el.alcool )
+    getCocktailsWithAlcool(): Observable<Cocktail[]> {
+        return this.getCocktails().pipe(
+            map( (cockails: Cocktail[]) => cockails.filter( (el: Cocktail) => el.alcoholic ))
+        )
     }
 
-    getCocktailFilteredByName(search: string) {
-        return this.cocktails.filter( el => el.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0 )
+    getCocktailsWithoutAlcool(): Observable<Cocktail[]> {
+        return this.getCocktails().pipe(
+            map( (cockails: Cocktail[]) => cockails.filter( (el: Cocktail) => ! el.alcoholic ))
+        )
     }
 
-    searchCocktailsByName(search: string) {
-        return this.http.get(this.BASE_URL + '/search.php?s=' + search).pipe(
-          map( (data: any) => {
-              const arr = data['drinks']
-              return arr.map( (el: any) => el.strDrink )
-          })
-      )
+    getCocktailsContains(search: string): Observable<Cocktail[]> {
+        return this.getCocktails().pipe(
+            map( (cockails: Cocktail[]) => cockails.filter( (el: Cocktail) => el.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0 ))
+        )
+    }
+
+    getCocktailsBegin(letter: string): Observable<Cocktail[]> {
+        return this.getCocktails().pipe(
+            map( (cockails: Cocktail[]) => cockails.filter( (el: Cocktail) => el.name.toLocaleLowerCase().indexOf(letter.toLocaleLowerCase()) === 0 ))
+        )
+    }
+
+    protected obj2ArrayCocktail(obj: any): Cocktail[] {
+        const arr = obj['drinks']
+        return arr.map( (el: any) => {
+            const c: Cocktail = {
+                id: el.idDrink,
+                name: el.strDrink,
+                description: el.strInstructions,
+                img: el.strDrinkThumb,
+                alcoholic: el.strAlcoholic === 'Alcoholic'
+            }
+            return c
+        })
     }
 }

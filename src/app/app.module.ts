@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CocktailComponent } from './cocktail/cocktail.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LetterBarComponent } from './letter-bar/letter-bar.component';
 import { HomeComponent } from './home/home.component';
 import { WithOrWithoutComponent } from './with-or-without/with-or-without.component';
 import { PasswordComponent } from './observables-page/password/password.component';
@@ -21,6 +21,8 @@ import { ProducerComponent } from './observables-page/producer/producer.componen
 import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
 import { AutoCompleteComponent } from './observables-page/auto-complete/auto-complete.component';
 import { StartStopComponent } from './observables-page/start-stop/start-stop.component';
+import { CocktailsListComponent } from './cocktails-list/cocktails-list.component';
+import { CocktailsByLetterComponent } from './cocktails-by-letter/cocktails-by-letter.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { StartStopComponent } from './observables-page/start-stop/start-stop.com
     FooterComponent,
     HomeComponent,
     CocktailComponent,
-    NavBarComponent,
+    LetterBarComponent,
     WithOrWithoutComponent,
     PasswordComponent,
     EnfantComponent,
@@ -40,7 +42,9 @@ import { StartStopComponent } from './observables-page/start-stop/start-stop.com
     ProducerComponent,
     CocktailDetailComponent,
     AutoCompleteComponent,
-    StartStopComponent
+    StartStopComponent,
+    CocktailsListComponent,
+    CocktailsByLetterComponent
   ],
   imports: [
     BrowserModule,
