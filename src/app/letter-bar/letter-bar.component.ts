@@ -19,7 +19,7 @@ export class LetterBarComponent implements OnInit {
     }
 
     all() {
-        this.router.navigate(['/home', ''])
+        this.router.navigateByUrl('/home')
     }
 
 }
