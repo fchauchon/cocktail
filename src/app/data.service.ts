@@ -49,16 +49,14 @@ export class DataService {
     }
 
     protected obj2ArrayCocktail(obj: any): Cocktail[] {
-        const arr = obj['drinks']
-        return arr.map( (el: any) => {
-            const c: Cocktail = {
+        return obj.drinks.map( (el: any): Cocktail => (
+            {
                 id: el.idDrink,
                 name: el.strDrink,
-                description: el.strInstructions,
-                img: el.strDrinkThumb,
-                alcoholic: el.strAlcoholic === 'Alcoholic'
+                description: el.strIntructions,
+                alcoholic: el.strAlcoholic === 'Alcoholic',
+                img: el.strDrinkThumb
             }
-            return c
-        })
+        ) )
     }
 }
