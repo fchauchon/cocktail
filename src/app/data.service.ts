@@ -49,14 +49,14 @@ export class DataService {
     }
 
     protected obj2ArrayCocktail(obj: any): Cocktail[] {
-        return obj.drinks.map( (el: any): Cocktail => (
-            {
+        return obj.drinks.map( (el: any): Cocktail =>
+            ({
                 id: el.idDrink,
                 name: el.strDrink,
                 description: el.strIntructions,
                 alcoholic: el.strAlcoholic === 'Alcoholic',
                 img: el.strDrinkThumb
-            }
-        ) )
+            })
+        )
     }
 }
