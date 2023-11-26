@@ -8,15 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
     logoPath: string = 'assets/logo.svg'
-    items: Array<any> = new Array<any>()
 
     constructor() { }
 
-    ngOnInit(): void {
-        this.items.push( { name: 'Accueil', display: true })
-        this.items.push( { name: 'Avec alcool', display: true })
-        this.items.push( { name: 'Sans alcool', display: true })
-        this.items.push( { name: 'Tous', display: false })
-    }
+    ngOnInit(): void { }
 
 }
