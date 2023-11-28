@@ -33,3 +33,54 @@ img.rotate {
 img.rotate:hover {
     transform: rotate(360deg)
 }
+
+img.flip {
+    transition: transform 1s ease-in-out;
+}
+
+img.flip:hover {
+    transform: scaleX(-1)
+}
+
+.panel {
+    background-color: rgb(242, 109, 60);
+    color: white;
+}
+
+.titre {
+    color: rgb(242, 109, 60);
+    font-size: large;
+    font-weight: bold;
+}
+
+.padding-10 {
+    padding: 10px 0px 10px 0px;
+}
+
+.padding-25 {
+    padding: 25px 0px 25px 0px;
+}
+
+.padding-40 {
+    padding: 40px 0px 40px 0px;
+}
+
+.padding-b-25 {
+    padding-bottom: 25px!important;
+}
+
+.bgColor1 {
+    background-color: rgb(222, 217, 215);
+}
+
+.bgColor2 {
+    background-color: rgb(245, 230, 220);
+}
+
+.f-large {
+    font-size: large;
+}
+
+.f-x-large {
+    font-size: x-large;
+}
