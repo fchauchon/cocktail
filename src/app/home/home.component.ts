@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
         this.cocktails = this.dataService.getCocktails()
         this.searchCtrl.valueChanges.subscribe(
-            val => this.cocktails = this.dataService.getCocktailFilteredByName(val)
+            val => this.cocktails = this.dataService.getCocktailsContains(val)
         )
     }
 

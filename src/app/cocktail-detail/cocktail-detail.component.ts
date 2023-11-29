@@ -19,12 +19,8 @@ export class CocktailDetailComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.paramMap.subscribe(
-            (params) => this.cocktails = this.dataService.getCocktailFilteredByLetter(params.get('letter') ?? '')
+            (params) => this.cocktails = this.dataService.getCocktailsFirstLetter(params.get('letter') ?? '')
         )
-    }
-
-    back() {
-        this.router.navigateByUrl('/home')
     }
 
 }
