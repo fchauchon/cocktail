@@ -1,8 +1,4 @@
-<div class="w3-padding general">
-    <div [hidden]="isHidden">
-        <img [src]="cocktail.img" width="100px"/>
-        {{ cocktail.name | uppercase }}
-        {{ cocktail.description }}
-        <button class="w3-button w3-blue" (click)="onClick()">Change</button>
-    </div>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center"><img class="grows" [src]="cocktail.img" height="200px" /></div>
+    <div class="col-12 d-flex justify-content-center">{{ cocktail.name }}</div>
 </div>

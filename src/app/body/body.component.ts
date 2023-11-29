@@ -10,12 +10,14 @@ export class BodyComponent implements OnInit {
 
     myClasses: any = {}
     lastCocktail: string = 'No value'
-    cocktails: Array<any> = new Array<any>()
+    cocktailsWith!: Array<any>
+    cocktailsWithout!: Array<any>
 
     constructor(private dataService: DataService) { }
 
     ngOnInit(): void {
-        this.cocktails = this.dataService.getCocktails()
+        this.cocktailsWith = this.dataService.getCocktailsWith()
+        this.cocktailsWithout = this.dataService.getCocktailsWithout()
     }
 
     onEvent = (event: any) => {

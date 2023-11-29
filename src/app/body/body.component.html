@@ -1,10 +1,31 @@
-<content class="w3-col general">
-    <div class="w3-col general" [ngClass]="myClasses" style="overflow: auto">
-        {{ lastCocktail }}
-        <ng-container *ngIf="cocktails.length > 0">
-            <ng-container *ngFor="let item of cocktails">
-                <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>
-            </ng-container>
-        </ng-container>
+<content>
+    <app-intro></app-intro>
+    
+    {{ lastCocktail }}
+
+    <div class="padding-25 bg-color-1">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center f-large padding-b-25">
+                <span class="titre">Les classiques</span>
+            </div>
+            <div class="row">
+                <ng-container *ngIf="cocktailsWith.length > 0">
+                    <div class="col-3" *ngFor="let item of cocktailsWith">
+                        <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="col-12 d-flex justify-content-center f-large padding-25">
+                <span class="titre">Les sans alcool</span>
+            </div>
+            <div class="row">
+                <ng-container *ngIf="cocktailsWithout.length > 0">
+                    <div class="col-6" *ngFor="let item of cocktailsWithout">
+                        <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
     </div>
+
 </content>
