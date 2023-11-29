@@ -10,19 +10,18 @@ import { DataService } from '../data.service';
 })
 export class CocktailDetailComponent implements OnInit {
 
-    cocktails: any[]  = []
+    cocktail: any | null = null
 
     constructor(
         private route: ActivatedRoute,
-        private router: Router,
         private dataService: DataService)
     { }
 
     ngOnInit(): void {
         this.route.paramMap.pipe(
-            switchMap( (params) => this.dataService.getCocktailsFirstLetter(params.get('letter') ?? ''))
+            switchMap( (params) => this.dataService.getCocktailById(params.get('id') ?? ''))
         ).subscribe(
-            (cocktails) => this.cocktails = cocktails
+            (cocktail) => this.cocktail = cocktail
         )
     }
 

@@ -12,7 +12,7 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
     { path: 'home', component: HomeComponent },
-    { path: 'cocktails/:letter/list', component: CocktailsByLetterComponent },
+    { path: 'cocktails/:letter', component: CocktailsByLetterComponent },
     { path: 'with', component: WithOrWithoutComponent },
     { path: 'without', component: WithOrWithoutComponent },
     { path: 'cocktails/:id/detail', component: CocktailDetailComponent },

@@ -22,7 +22,6 @@ export class CocktailComponent implements OnInit, OnDestroy {
     }
 
     onClickDetail() {
-      console.log('hr')
         this.router.navigate(['/cocktails', this.cocktail.id, 'detail'])
     }
 
