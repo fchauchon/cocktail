@@ -15,6 +15,8 @@ import { EnfantComponent } from './finances/enfant/enfant.component';
 import { ParentComponent } from './finances/parent/parent.component';
 import { FinancesComponent } from './finances/finances.component';
 import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
+import { IntroComponent } from './intro/intro.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.compo
     EnfantComponent,
     ParentComponent,
     FinancesComponent,
-    CocktailDetailComponent
+    CocktailDetailComponent,
+    IntroComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

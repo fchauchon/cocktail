@@ -15,6 +15,6 @@ export class ParentComponent implements OnInit {
 
     addMoney() {
         this.finance.addMoney()
-        this.balanceChange.emit( { from: "Parents", amount: 100} )
+        this.balanceChange.emit( { from: "Parents", amount: +100} )
     }
 }
