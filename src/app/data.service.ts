@@ -20,11 +20,11 @@ export class DataService {
         return this.cocktails
     }
 
-    getCocktailsWithAlcool() {
+    getCocktailsWith() {
         return this.cocktails.filter( el => el.alcohol )
     }
 
-    getCocktailsWithoutAlcool() {
+    getCocktailsWithout() {
         return this.cocktails.filter( el => !el.alcohol )
     }
 
