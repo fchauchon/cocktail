@@ -18,19 +18,13 @@ export class DataService {
         )
     }
 
-    getCocktailById(id: string): Observable<Cocktail[]> {
-        return this.http.get(this.BASE_URL + '/lookup.php?i=' + id).pipe(
-            map( (data: any) => this.obj2ArrayCocktail(data) )
-        )
-    }
-
-    getCocktailsWithAlcool(): Observable<Cocktail[]> {
+    getCocktailsWith(): Observable<Cocktail[]> {
         return this.getCocktails().pipe(
             map( (cocktails: Cocktail[]) => cocktails.filter( (el: Cocktail) => el.alcoholic ))
         )
     }
 
-    getCocktailsWithoutAlcool(): Observable<Cocktail[]> {
+    getCocktailsWithout(): Observable<Cocktail[]> {
         return this.getCocktails().pipe(
             map( (cocktails: Cocktail[]) => cocktails.filter( (el: Cocktail) => ! el.alcoholic ))
         )

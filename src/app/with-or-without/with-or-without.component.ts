@@ -19,11 +19,11 @@ export class WithOrWithoutComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.router.url === '/with') {
-            this.dataService.getCocktailsWithAlcool().subscribe(
+            this.dataService.getCocktailsWith().subscribe(
                 (cocktails: Cocktail[]) => this.cocktails = cocktails
             )
         } else {
-            this.dataService.getCocktailsWithoutAlcool().subscribe(
+            this.dataService.getCocktailsWithout().subscribe(
                 (cocktails: Cocktail[]) => this.cocktails = cocktails
             )
         }
