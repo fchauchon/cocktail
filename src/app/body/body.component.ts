@@ -9,7 +9,7 @@ import { DataService } from '../data.service'
 export class BodyComponent implements OnInit {
 
     myClasses: any = {}
-    lastCocktail: string = 'No value'
+    lastCocktail: string = '(aucun)'
     cocktailsWith!: Array<any>
     cocktailsWithout!: Array<any>
 
