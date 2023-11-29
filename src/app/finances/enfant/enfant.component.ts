@@ -17,6 +17,6 @@ export class EnfantComponent implements OnInit {
 
     spendMoney() {
         this.financeService.spendMoney()
-        this.balanceChange.emit( { from: this.firstname, amount: 20 } )
+        this.balanceChange.emit( { from: this.firstname, amount: -20 } )
     }
 }

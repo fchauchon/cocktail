@@ -1,9 +1,13 @@
-Solde actuel : {{ balance }}<br/>
-Dernières actions:
-<div *ngFor="let action of actions">
-    {{ action.from }} - {{ action.amount }}
+<div class="padding-25 bg-color-1">
+    <div class="row" style="padding: 25px;">
+        Solde actuel : {{ balance }}<br/>
+        Dernières actions:
+        <div *ngFor="let action of actions">
+            {{ action.from }} = {{ action.amount }}
+        </div>
+        <app-enfant (balanceChange)="onBalanceChange($event)" firstname="Lucie"></app-enfant>
+        <app-enfant (balanceChange)="onBalanceChange($event)" firstname="Julia"></app-enfant>
+        <app-enfant (balanceChange)="onBalanceChange($event)" firstname="Nina"></app-enfant>
+        <app-parent (balanceChange)="onBalanceChange($event)" ></app-parent>
+    </div>
 </div>
-<app-enfant (balanceChange)="onBalanceChange($event)" firstname="Lucie"></app-enfant>
-<app-enfant (balanceChange)="onBalanceChange($event)" firstname="Julia"></app-enfant>
-<app-enfant (balanceChange)="onBalanceChange($event)" firstname="Nina"></app-enfant>
-<app-parent (balanceChange)="onBalanceChange($event)" ></app-parent>

@@ -7,6 +7,7 @@ import { FinancesComponent } from './finances/finances.component';
 import { ObservablesPageComponent } from './observables-page/observables-page.component';
 import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
 import { CocktailsByLetterComponent } from './cocktails-by-letter/cocktails-by-letter.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -17,7 +18,8 @@ const routes: Routes = [
     { path: 'cocktails/:id/detail', component: CocktailDetailComponent },
     { path: 'password', component: PasswordComponent },
     { path: 'finances', component: FinancesComponent },
-    { path: 'observables', component: ObservablesPageComponent }
+    { path: 'observables', component: ObservablesPageComponent },
+    { path: 'about', component: AboutComponent }
 ];
 
 @NgModule({

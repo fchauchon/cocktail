@@ -23,6 +23,8 @@ import { AutoCompleteComponent } from './observables-page/auto-complete/auto-com
 import { StartStopComponent } from './observables-page/start-stop/start-stop.component';
 import { CocktailsListComponent } from './cocktails-list/cocktails-list.component';
 import { CocktailsByLetterComponent } from './cocktails-by-letter/cocktails-by-letter.component';
+import { AboutComponent } from './about/about.component';
+import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { CocktailsByLetterComponent } from './cocktails-by-letter/cocktails-by-l
     AutoCompleteComponent,
     StartStopComponent,
     CocktailsListComponent,
-    CocktailsByLetterComponent
+    CocktailsByLetterComponent,
+    AboutComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class PasswordComponent implements OnInit {
     password: FormControl<string>
     confirmPassword: FormControl<string>
     percent = 0
-    show = false
+    fail = false
 
     constructor() {
         this.password = new FormControl<string>('', { nonNullable: true })
@@ -40,7 +40,7 @@ export class PasswordComponent implements OnInit {
                     interval(1000).pipe(
                         map( (value: number) => value % 2 === 0)
                     ).subscribe(
-                        (show: boolean) => this.show = show
+                        (fail: boolean) => this.fail = fail
                     )
                 }
             }

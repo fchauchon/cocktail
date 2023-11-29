@@ -1,8 +1,5 @@
 <h3>Producer</h3>
-<div style="background-color: beige; margin-bottom: 50px; margin-top: 20px;">
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-        <input formControlName="data">
-        <button>Envoyer données</button>
-    </form>
-</div>
-
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <input formControlName="data">
+    <button>Envoyer données</button>
+</form>

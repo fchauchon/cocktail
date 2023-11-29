@@ -27,7 +27,7 @@ export class AutoCompleteComponent implements OnInit {
       this.searchControl.valueChanges.pipe(
           filter( chaine => chaine.length >= 3),
           debounceTime(1000),
-          switchMap( chaine => this.dataService.getCocktailsBegin(chaine))
+          switchMap( chaine => this.dataService.getCocktailsBeginWith(chaine))
       ).subscribe(
           (cocktails: Cocktail[]) => this.suggestions = cocktails
     )

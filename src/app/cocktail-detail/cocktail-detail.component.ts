@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { DataService } from '../data.service';
 
@@ -10,19 +10,20 @@ import { DataService } from '../data.service';
 })
 export class CocktailDetailComponent implements OnInit {
 
-    cocktail: any
+    cocktails: any[]  = []
 
     constructor(
-        private activatedRoute: ActivatedRoute,
-        private dataService: DataService) { }
+        private route: ActivatedRoute,
+        private router: Router,
+        private dataService: DataService)
+    { }
 
-  ngOnInit(): void {
-      this.activatedRoute.paramMap.pipe(
-          map( params => params.get('id') ?? '' ),
-          switchMap( id => this.dataService.getCocktailById(id) )
-      ).subscribe(
-        cocktail => this.cocktail = cocktail[0]
-      )
-  }
+    ngOnInit(): void {
+        this.route.paramMap.pipe(
+            switchMap( (params) => this.dataService.getCocktailsFirstLetter(params.get('letter') ?? ''))
+        ).subscribe(
+            (cocktails) => this.cocktails = cocktails
+        )
+    }
 
 }

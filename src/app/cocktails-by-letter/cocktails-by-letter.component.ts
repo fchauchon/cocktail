@@ -21,7 +21,7 @@ export class CocktailsByLetterComponent implements OnInit {
     ngOnInit(): void {
         this.activatedRoute.paramMap.pipe(
             map( params => params.get('letter') ?? '' ),
-            switchMap( letter => this.dataService.getCocktailsBegin(letter) )
+            switchMap( (letter: string) => this.dataService.getCocktailsFirstLetter(letter) )
         ).subscribe(
             cocktails => this.cocktails = cocktails
         )

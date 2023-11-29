@@ -26,25 +26,31 @@ export class DataService {
 
     getCocktailsWithAlcool(): Observable<Cocktail[]> {
         return this.getCocktails().pipe(
-            map( (cockails: Cocktail[]) => cockails.filter( (el: Cocktail) => el.alcoholic ))
+            map( (cocktails: Cocktail[]) => cocktails.filter( (el: Cocktail) => el.alcoholic ))
         )
     }
 
     getCocktailsWithoutAlcool(): Observable<Cocktail[]> {
         return this.getCocktails().pipe(
-            map( (cockails: Cocktail[]) => cockails.filter( (el: Cocktail) => ! el.alcoholic ))
+            map( (cocktails: Cocktail[]) => cocktails.filter( (el: Cocktail) => ! el.alcoholic ))
         )
     }
 
     getCocktailsContains(search: string): Observable<Cocktail[]> {
         return this.getCocktails().pipe(
-            map( (cockails: Cocktail[]) => cockails.filter( (el: Cocktail) => el.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0 ))
+            map( (cocktails: Cocktail[]) => cocktails.filter( (el: Cocktail) => el.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0 ))
         )
     }
 
-    getCocktailsBegin(letter: string): Observable<Cocktail[]> {
+    getCocktailsFirstLetter(letter: string): Observable<Cocktail[]> {
         return this.getCocktails().pipe(
-            map( (cockails: Cocktail[]) => cockails.filter( (el: Cocktail) => el.name.toLocaleLowerCase().indexOf(letter.toLocaleLowerCase()) === 0 ))
+            map( (cocktails: Cocktail[]) => cocktails.filter( (el: Cocktail) => el.name.toLocaleLowerCase()[0] === letter.toLocaleLowerCase() ) )
+        )
+    }
+
+    getCocktailsBeginWith(begin: string): Observable<Cocktail[]> {
+        return this.getCocktails().pipe(
+            map( (cocktails: Cocktail[]) => cocktails.filter( (el: Cocktail) => el.name.toLocaleLowerCase().indexOf(begin.toLocaleLowerCase()) === 0 ) )
         )
     }
 

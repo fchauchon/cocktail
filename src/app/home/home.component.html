@@ -1,10 +1,24 @@
-<div class="w3-col general" style="overflow: auto">
-    <app-letter-bar></app-letter-bar>
-    <form [formGroup]="searchForm">
-        Cocktail dont le nom contient :
-        <input formControlName="search">
-    </form>
-    <br/>
-    Dernier cocktail sélectionné : {{ lastCocktail }}
-    <app-cocktails-list [cocktails]="cocktails"></app-cocktails-list>
+<app-intro></app-intro>
+<div class="bg-color-3 d-flex justify-content-center">
+    <div><app-letter-bar></app-letter-bar></div>
+    <div>
+        <form [formGroup]="searchForm">
+            Chercher des cocktails dont le name contient : <input formControlName="search">
+        </form>
+    </div>
+    <div>Vous avez sélectionné le cocktail : {{ lastCocktail }}</div>
+</div>
+<div class="padding-25 bg-color-1">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center f-large padding-b-25">
+            <span class="titre">Tous les cocktails</span>
+        </div>
+        <div class="row">
+            <ng-container *ngIf="cocktails.length > 0">
+                <div class="col-3" *ngFor="let item of cocktails">
+                    <app-cocktail [cocktail]="item" (eventOut)="onEvent($event)"></app-cocktail>
+                </div>
+            </ng-container>
+        </div>
+    </div>
 </div>

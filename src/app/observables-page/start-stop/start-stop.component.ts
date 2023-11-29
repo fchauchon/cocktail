@@ -8,7 +8,7 @@ import { filter, interval, map, Subject, Subscription, takeUntil } from 'rxjs';
 })
 export class StartStopComponent implements OnInit {
 
-    current: string = ''
+    current: string = '(vide)'
     sub: Subscription | null = null
     stoooooop: Subject<string> = new Subject<string>()
 

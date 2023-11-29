@@ -1,7 +1,9 @@
-<ng-container *ngIf="cocktail">
-  {{ cocktail.id }}<br/>
-  <span style="font-weight: bold;"></span>{{ cocktail.name | uppercase }}<br/>
-  {{ cocktail.description }}<br/>
-  <img [src]="cocktail.img" />
-  <a routerLink="/home">Retour</a>
-</ng-container>
+<div class="bg-color-1">
+  <div class="row">
+      <ng-container *ngFor="let current of cocktails">
+          <div class="col-6">
+              <app-cocktail [cocktail]="current"></app-cocktail>
+          </div>
+      </ng-container>
+  </div>
+</div>
