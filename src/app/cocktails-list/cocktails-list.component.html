@@ -1,5 +1,9 @@
-<ng-container *ngIf="cocktails.length > 0">
-    <ng-container *ngFor="let cocktail of cocktails">
-        <app-cocktail [cocktail]="cocktail" (eventOut)="onEvent($event)"></app-cocktail>
-    </ng-container>
-</ng-container>
+<div class="bg-color-1 d-flex justify-content-center f-large padding-25">
+    <div class="row ">
+        <ng-container *ngIf="cocktails.length > 0">
+            <div class="col-3" *ngFor="let item of cocktails">
+                <app-cocktail [cocktail]="item"></app-cocktail>
+            </div>
+        </ng-container>
+    </div>
+</div>

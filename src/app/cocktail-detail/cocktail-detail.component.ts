@@ -11,6 +11,7 @@ import { DataService } from '../data.service';
 export class CocktailDetailComponent implements OnInit {
 
     cocktail: any | null = null
+    alcoholic!: string
 
     constructor(
         private route: ActivatedRoute,
@@ -21,7 +22,10 @@ export class CocktailDetailComponent implements OnInit {
         this.route.paramMap.pipe(
             switchMap( (params) => this.dataService.getCocktailById(params.get('id') ?? ''))
         ).subscribe(
-            (cocktail) => this.cocktail = cocktail
+            (cocktail) => {
+                this.cocktail = cocktail
+                this.alcoholic = cocktail.alcoholic ? 'assets/invalid.png' : 'assets/valid.png'
+            }
         )
     }
 

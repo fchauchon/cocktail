@@ -1,7 +1,20 @@
-<div class="bg-color-1">
+<div class="bg-color-1 padding-40">
   <div class="row">
     <ng-container *ngIf="cocktail != null">
+      <div class="col-2"></div>
+      <div class="col-10 d-flex justify-content-start">
+        {{ cocktail.name }}&nbsp;<img [src]="alcoholic" height="30px" />
+      </div>
+      <div class="col-2">
+      </div>
+      <div class="col-3 d-flex justify-content-start">
+        <img [src]="cocktail.img" height="400px" />
+      </div>
+      <div class="col-5">
         {{ cocktail.description }}
+      </div>
+      <div class="col-2">
+      </div>
     </ng-container>
   </div>
 </div>

@@ -25,7 +25,7 @@ export class AutoCompleteComponent implements OnInit {
 
     ngOnInit(): void {
       this.searchControl.valueChanges.pipe(
-          filter( chaine => chaine.length >= 3),
+          filter( chaine => chaine.length >= 2),
           debounceTime(1000),
           switchMap( chaine => this.dataService.getCocktailsBeginWith(chaine))
       ).subscribe(
