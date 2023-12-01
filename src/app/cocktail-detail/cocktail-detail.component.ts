@@ -19,7 +19,9 @@ export class CocktailDetailComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.paramMap.subscribe(
-            (params) => this.cocktails = this.dataService.getCocktailsFirstLetter(params.get('letter') ?? '')
+            (params) => this.dataService.getCocktailsFirstLetter(params.get('letter') ?? '').subscribe(
+                data => this.cocktails = data
+            )
         )
     }
 
