@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,16 +17,16 @@ export class DataService {
         this.cocktails.push( { name: 'Halloween Punch', description: 'Pour en mettre plein les yeux le soir le plus effrayant de l\'année, préparez un punch d\'Halloween facile… couleur rouge sang et rempli de globes oculaires !', img: 'assets/holloweenpunch.jpg', alcohol: false } )
     }
 
-    getCocktails() : any[] {
-        return this.cocktails
+    getCocktails(): Observable<any[]> {
+        return of(this.cocktails)
     }
 
-    getCocktailsWith() : any[] {
-        return this.cocktails.filter( el => el.alcohol )
+    getCocktailsWith(): Observable<any[]> {
+        return of(this.cocktails.filter( el => el.alcohol ))
     }
 
-    getCocktailsWithout() : any[] {
-        return this.cocktails.filter( el => ! el.alcohol )
+    getCocktailsWithout(): Observable<any[]> {
+        return of(this.cocktails.filter( el => ! el.alcohol ))
     }
 
 }

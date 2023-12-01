@@ -16,8 +16,12 @@ export class BodyComponent implements OnInit {
     constructor(private dataService: DataService) { }
 
     ngOnInit(): void {
-        this.cocktailsWith = this.dataService.getCocktailsWith()
-        this.cocktailsWithout = this.dataService.getCocktailsWithout()
+        this.dataService.getCocktailsWith().subscribe(
+            data => this.cocktailsWith = data
+        )
+        this.dataService.getCocktailsWithout().subscribe(
+            data => this.cocktailsWithout = data
+        )
     }
 
     onEvent = (event: any) => {
