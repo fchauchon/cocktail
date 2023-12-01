@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,24 +17,24 @@ export class DataService {
         this.cocktails.push( { name: 'Halloween Punch', description: 'Pour en mettre plein les yeux le soir le plus effrayant de l\'année, préparez un punch d\'Halloween facile… couleur rouge sang et rempli de globes oculaires !', img: 'assets/holloweenpunch.jpg', alcohol: false } )
     }
 
-    getCocktails() {
-        return this.cocktails
+    getCocktails(): Observable<any[]> {
+        return of(this.cocktails)
     }
 
-    getCocktailsWith() {
-        return this.cocktails.filter( el => el.alcohol )
+    getCocktailsWith(): Observable<any[]> {
+        return of(this.cocktails.filter( el => el.alcohol ))
     }
 
-    getCocktailsWithout() {
-        return this.cocktails.filter( el => !el.alcohol )
+    getCocktailsWithout(): Observable<any[]> {
+        return of(this.cocktails.filter( el => !el.alcohol ))
     }
 
-    getCocktailsContains(search: string) {
-        return this.cocktails.filter( el => el.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0 )
+    getCocktailsContains(search: string): Observable<any[]> {
+        return of(this.cocktails.filter( el => el.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0 ))
     }
 
-    getCocktailsFirstLetter(letter: string) {
-        return this.cocktails.filter( el => el.name.toLocaleLowerCase()[0] === letter.toLocaleLowerCase() )
+    getCocktailsFirstLetter(letter: string): Observable<any[]> {
+        return of(this.cocktails.filter( el => el.name.toLocaleLowerCase()[0] === letter.toLocaleLowerCase() ))
     }
 
 
